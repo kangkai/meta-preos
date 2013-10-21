@@ -33,3 +33,12 @@ Then you can use below command to build out Pre-OS initramfs image:
     $ bitbake preos-image
 
 For detailed Yocto usage guide, please refer the official site.
+
+
+Why not using some existing minimal distro
+------------------------------------------
+
+* It's highly customized;
+* We do not include GPLv3 packages;
+* It's not busybox based, instead we're picking progs/utils from coreutils,
+  util-linux, procps etc. packages;
