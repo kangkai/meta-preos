@@ -24,3 +24,6 @@ FILES_${PN}-preos = "${bindir}/basename* \
 		     ${base_bindir}/true* \
 		     ${base_bindir}/uname* \
 		    "
+ALTERNATIVE_${PN}-preos = "basename cut env sort cat chmod cp date \
+			   dd false ln ls mkdir mknod mv pwd rm rmdir \
+			   sleep stty sync touch true uname"
