@@ -20,7 +20,9 @@ IMAGE_INSTALL = "bash-preos \
 		 net-tools-preos \
 		 directfb \
 	         base-passwd \
-		 initramfs-boot"
+		 initramfs-boot \
+		 tboot \
+		 "
 
 # Packages installed for development and test purpose
 IMAGE_INSTALL += ""

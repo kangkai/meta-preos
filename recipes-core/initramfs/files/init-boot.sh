@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo "****************************"
-echo "Pre-OS v$(cat /etc/VERSION)"
+echo "Pre-OS v$(cat /etc/version)"
 echo "****************************"
 
 if [ "x$0" = x/init ]; then
@@ -32,7 +32,6 @@ if $__sysinit; then
 fi
 
 PATH=/sbin:/bin:/usr/sbin:/usr/bin
-DFBARGS=module-dir=/lib/directfb-1.4-5-pure
 
 PS1='preos \w> '	# if user invokes a shell
 export PATH PS1 DFBARGS
@@ -75,7 +74,7 @@ echo "$(cat /sys/class/backlight/psb-bl/max_brightness)" > /sys/class/backlight/
 /sbin/watchdogd &
 
 # tboot service
-/sbin/tboot &
+tboot &
 
 ################ telnetd debug #####################
 # mkdir /dev/pts
