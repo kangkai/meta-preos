@@ -22,6 +22,7 @@ IMAGE_INSTALL = "bash-preos \
 	         base-passwd \
 		 initramfs-boot \
 		 tboot \
+		 mosquitto \
 		 "
 
 # Packages installed for development and test purpose
