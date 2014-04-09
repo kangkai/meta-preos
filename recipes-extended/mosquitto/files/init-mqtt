@@ -1,0 +1,37 @@
+#!/bin/sh
+#
+#
+
+test -f /usr/sbin/mosquitto || exit 0
+
+if [ ! -f /etc/mosquitto/mosquitto.conf ]; then
+	echo "/etc/mosquitto/mosquitto.conf does not exist! - Aborting..."
+	exit 0
+fi
+
+
+case "$1" in
+	start)
+		echo -n "Starting mosquitto server: "
+		start-stop-daemon -S -x /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+		echo "."
+		;;
+	stop)
+		echo -n "Stopping mosquitto server: "
+		start-stop-daemon -K -x /usr/sbin/mosquitto
+		echo "."
+		;;
+	restart | force-reload)
+		$0 stop
+		sleep 2
+		$0 start
+		if [ "$?" != "0" ]; then
+			exit 1
+		fi
+		;;
+	*)
+		echo "Usage: /etc/init.d/init-mqtt {start|stop|restart|force-reload}"
+		exit 1 
+esac
+
+exit 0
